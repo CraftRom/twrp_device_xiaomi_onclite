@@ -41,8 +41,6 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78af000 firmware_class.path=/vendor/firmware_mnt/image androidboot.usbconfigfs=true loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
@@ -51,6 +49,23 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_ARCH := arm64
+
+# Kernel CMDLINE
+BOARD_KERNEL_CMDLINE := \
+    console=ttyMSM0,115200,n8 \
+    androidboot.console=ttyMSM0 \
+    androidboot.hardware=qcom \
+    msm_rtb.filter=0x237 \
+    ehci-hcd.park=3 \
+    lpm_levels.sleep_disabled=1 \
+    androidboot.bootdevice=7824900.sdhci \
+    earlycon=msm_serial_dm,0x78af000 \
+    firmware_class.path=/vendor/firmware_mnt/image \
+    androidboot.usbconfigfs=true \
+    loop.max_part=7
+
+BOARD_KERNEL_CMDLINE += \
+    androidboot.selinux=permissive
 
 # AVB
 BOARD_AVB_ENABLE := true
@@ -81,18 +96,16 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
-# SELinux
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-SELINUX_IGNORE_NEVERALLOWS := true
-
 # Crypto
+BOARD_USES_METADATA_PARTITION := true
+TW_INCLUDE_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-BOARD_USES_METADATA_PARTITION := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TARGET_HW_DISK_ENCRYPTION := true
 
 # TWRP specific build flags
-HAVE_SELINUX := true
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -114,7 +127,7 @@ TW_HAS_EDL_MODE := true
 TW_NO_USB_STORAGE := true
 
 # Show build time on the splash screen
-TW_DEVICE_VERSION=$(shell date '+%Y%m%d')
+TW_DEVICE_VERSION=$(shell date '+%Y%m%d') by KostyaJRZ
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
