@@ -32,6 +32,11 @@ repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.
 repo sync
 ```
 
+You need to clone kernel source:
+```
+git clone -b twrp https://github.com/AlpacaGang/kernel_xiaomi_onclite.git kernel/xiaomi/onclite
+```
+
 And execute these:
 
 ```
