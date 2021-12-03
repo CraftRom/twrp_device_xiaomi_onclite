@@ -45,3 +45,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31 \
     ro.secure=1 \
     ro.adb.secure=0
+    
+# Qcom standerd Decryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
+# fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
+    fastbootd
+
+# Apex libraries
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu    
