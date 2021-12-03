@@ -152,3 +152,7 @@ VENDOR_SECURITY_PATCH := 2127-12-31
 # Platform version
 PLATFORM_VERSION := 127
 PLATFORM_VERSION_LAST_STABLE := 127
+
+BOARD_AVB_RECOVERY_ADD_HASH_FOOTER_ARGS += \
+--prop com.android.build.boot.os_version:$(PLATFORM_VERSION) \
+--prop com.android.build.boot.security_patch:$(PLATFORM_SECURITY_PATCH) 
