@@ -146,6 +146,7 @@ TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_SUPERSU := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_LIBRESETPROP := true
+TW_OVERRIDE_SYSTEM_PROPS += "ro.build.fingerprint"
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2127-12-31
