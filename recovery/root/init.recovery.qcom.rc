@@ -42,3 +42,6 @@ on init
 
 on boot
     setprop sys.usb.config adb
+    
+on post-fs
+    start boot-hal-1-0    
