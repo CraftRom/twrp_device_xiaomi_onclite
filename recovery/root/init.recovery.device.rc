@@ -1,0 +1,18 @@
+# DT2W
+on init
+    write /proc/goodix_gesture 1
+    write /sys/devices/platform/soc/78b7000.i2c/i2c-3/3-0038/fts_gesture_mode 1
+
+# Fstab
+on init
+    exec u:r:recovery:s0 -- /system/bin/merge-fstab.sh
+
+# HVDCP
+service hvdcp_opti /system/bin/hvdcp_opti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+on boot
+    start hvdcp_opti
