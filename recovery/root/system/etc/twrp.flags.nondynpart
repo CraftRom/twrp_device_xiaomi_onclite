@@ -1,9 +1,0 @@
-# mount point   fstype  device                      device2                     flags
-
-# System
-/system_root    ext4    /dev/block/bootdevice/by-name/system                    flags=display="System";fsflags="discard";wipeingui
-/system_image   emmc    /dev/block/bootdevice/by-name/system                    flags=display="System";backup=1;flashimg=1
-/vendor         ext4    /dev/block/bootdevice/by-name/vendor                    flags=display="Vendor";fsflags="discard";wipeingui
-/vendor_image   emmc    /dev/block/bootdevice/by-name/vendor                    flags=display="Vendor";backup=1;flashimg=1
-/cust           auto    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";fsflags="discard";wipeingui
-/cust_image     emmc    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";backup=1;flashimg=1
