@@ -8,6 +8,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1520
+TARGET_SCREEN_WIDTH := 720
+
 # Crypto
 PRODUCT_PACKAGES += qcom_decrypt_fbe
 PRODUCT_PACKAGES += qcom_decrypt

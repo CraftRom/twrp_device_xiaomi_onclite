@@ -64,7 +64,7 @@ export OF_STATUS_INDENT_RIGHT="62" #48
 
 # R11 Settings
 export FOX_R11="1"
-export FOX_VERSION="R11.1_4"
+export FOX_VERSION="R11.1"
 export FOX_VARIANT="A12L"
 export OF_MAINTAINER="melles1991"
 export FOX_ADVANCED_SECURITY="1"
