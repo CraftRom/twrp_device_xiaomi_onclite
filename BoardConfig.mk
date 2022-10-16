@@ -127,12 +127,15 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 # fscrypt policy
 TW_USE_FSCRYPT_POLICY := 2
 
-# TWRP - Crypto - FDE
+# TWRP - Crypto - FDE [Not supported]
+TARGET_HW_DISK_ENCRYPTION := false
+ifeq ($(TARGET_HW_DISK_ENCRYPTION),true)
+$(warning FDE doesn't work with the 11.0 manifest. You will not be able to decrypt MIUI ROMs)
 BOARD_USES_QCOM_DECRYPTION := true
 TARGET_CRYPTFS_HW_PATH := $(DEVICE_PATH)/cryptfs_hw
-TARGET_HW_DISK_ENCRYPTION := true
 TARGET_RECOVERY_DEVICE_MODULES += libcryptfs_hw
 RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libcryptfs_hw.so
+endif
 
 # TWRP - Debug
 TARGET_USES_LOGD := true
