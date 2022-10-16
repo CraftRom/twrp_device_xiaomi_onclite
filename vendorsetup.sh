@@ -19,8 +19,8 @@
 #
 export LC_ALL="C"
 export ALLOW_MISSING_DEPENDENCIES=true
-export OF_TARGET_DEVICES="onclite,onc"
-export TARGET_DEVICE_ALT="onclite"
+export OF_TARGET_DEVICES="onclite"
+export TARGET_DEVICE_ALT="onclite, onc"
 
 
 # Device Tree Path | Include Path
