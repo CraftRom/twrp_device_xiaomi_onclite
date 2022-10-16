@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2022 Team Win Recovery Project
+# Copyright (C) 2022 The OrangeFox Recovery Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
