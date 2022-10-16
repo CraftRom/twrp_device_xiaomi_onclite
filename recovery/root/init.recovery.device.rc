@@ -16,3 +16,6 @@ service hvdcp_opti /system/bin/hvdcp_opti
 
 on boot
     start hvdcp_opti
+    setprop sys.usb.config none
+    setprop sys.usb.config adb
+	
