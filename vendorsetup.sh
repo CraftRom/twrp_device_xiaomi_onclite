@@ -50,6 +50,9 @@ export FOX_DELETE_AROMAFM="1"
 #Backup
 export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 
+# LZMA compression - this is needed!
+export FOX_USE_LZMA_COMPRESSION=1
+
 #Magiskboot
 export OF_USE_MAGISKBOOT="1"
 export OF_USE_NEW_MAGISKBOOT="1"
