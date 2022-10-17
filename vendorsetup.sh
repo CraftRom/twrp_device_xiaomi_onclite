@@ -77,10 +77,9 @@ export FOX_R11="1"
 export FOX_VERSION="R11.1"
 export FOX_VARIANT="A12L"
 export OF_MAINTAINER="melles1991"
-export FOX_ADVANCED_SECURITY="1"
 export OF_USE_TWRP_SAR_DETECT="1"
 
-# TEMP
+# Redmi 7/Y3 specific
 export FOX_BUILD_TYPE="NIGHTLY"
 
 # let's see what are our build VARs
