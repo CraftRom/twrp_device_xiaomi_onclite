@@ -27,7 +27,7 @@ export TARGET_DEVICE_ALT="onclite, onc"
 export DEVICE_PATH="device/xiaomi/onclite"
 export INCLUDE_PATH="$DEVICE_PATH/include"
 
-export OF_MAINTAINER_AVATAR="$INCLUDE_PATH/melles1991.png"
+export OF_MAINTAINER_AVATAR=$INCLUDE_PATH/melles1991.png
 
 #Language
 export TW_DEFAULT_LANGUAGE="en"
@@ -54,7 +54,7 @@ export FOX_DELETE_AROMAFM="1"
 export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 
 # LZMA compression - this is needed!
-export FOX_USE_LZMA_COMPRESSION=1
+export FOX_USE_LZMA_COMPRESSION="1"
 
 #Magiskboot
 export OF_USE_MAGISKBOOT="1"
@@ -83,7 +83,7 @@ export OF_MAINTAINER="melles1991"
 export OF_USE_TWRP_SAR_DETECT="1"
 
 # Redmi 7/Y3 specific
-export FOX_BUILD_TYPE="NIGHTLY"
+export FOX_BUILD_TYPE="RELEASE-UNOFFICIAL"
 
 # let's see what are our build VARs
 if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
