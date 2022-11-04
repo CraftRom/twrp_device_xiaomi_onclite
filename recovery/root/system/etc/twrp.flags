@@ -4,28 +4,40 @@
 /boot           emmc    /dev/block/bootdevice/by-name/boot                      flags=display="Boot";backup=1;flashimg=1
 /recovery       emmc    /dev/block/bootdevice/by-name/recovery                  flags=display="Recovery";backup=1;flashimg=1
 
-# Cache
-/cache          ext4    /dev/block/bootdevice/by-name/cache                     flags=display="Cache";fsflags="discard";wipeingui;wipeduringfactoryreset
-
-# DTBO
-/dtbo           emmc    /dev/block/bootdevice/by-name/dtbo                      flags=display="DTBO";backup=1;flashimg=1
-
-# Data
-/storage        ext4   	/data/media/0                  		     		        flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
-/data           ext4    /dev/block/bootdevice/by-name/userdata                  flags=encryptable=footer;length=-16384;fileencryption=ice:aes-256-cts:aes-256-heh;fsflags="discard"
-
 # System
 /system_root    ext4    /dev/block/bootdevice/by-name/system                    flags=display="System";fsflags="discard";wipeingui
 /system_image   emmc    /dev/block/bootdevice/by-name/system                    flags=display="System";backup=1;flashimg=1
 /vendor         ext4    /dev/block/bootdevice/by-name/vendor                    flags=display="Vendor";fsflags="discard";wipeingui
 /vendor_image   emmc    /dev/block/bootdevice/by-name/vendor                    flags=display="Vendor";backup=1;flashimg=1
+
+# Cache
+/cache          ext4    /dev/block/bootdevice/by-name/cache                     flags=display="Cache";fsflags="discard";wipeingui;wipeduringfactoryreset
+
+# Cust
 /cust           auto    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";fsflags="discard"
 /cust_image     emmc    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";backup=1;flashimg=1
 
+# DTBO
+/dtbo           emmc    /dev/block/bootdevice/by-name/dtbo                      flags=display="DTBO";backup=1;flashimg=1
+
+# Data
+/storage        auto   	/data/media/0                  		     		        flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable
+
 # Modem
-/firmware       vfat    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";fsflags="ro";mounttodecrypt
+/firmware       vfat    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";fsflags="ro";mounttodecrypt;backup=0
+/firmware_image emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";flashimg=0;backup=1
 /modem          emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Modem";backup=1
 /dsp            emmc    /dev/block/bootdevice/by-name/dsp                       flags=subpartitionof=/modem;backup=1
+
+# Firmware
+/cmnlib         emmc    /dev/block/bootdevice/by-name/cmnlib                    flags=display="CMNLIB";backup=1;flashimg=0;subpartitionof=/firmware_image
+/cmnlib64       emmc    /dev/block/bootdevice/by-name/cmnlib64                  flags=display="CMNLIB64";backup=1;flashimg=0;subpartitionof=/firmware_image
+/devcfg         emmc    /dev/block/bootdevice/by-name/devcfg                    flags=display="DEVCFG";backup=1;flashimg=0;subpartitionof=/firmware_image
+/aboot          emmc    /dev/block/bootdevice/by-name/aboot                     flags=display="Bootloader";backup=1;flashimg=0;subpartitionof=/firmware_image
+/lksecapp       emmc    /dev/block/bootdevice/by-name/lksecapp                  flags=display="LKSECAPP";backup=1;flashimg=0;subpartitionof=/firmware_image
+/rpm            emmc    /dev/block/bootdevice/by-name/rpm                       flags=display="RPM";backup=1;flashimg=0;subpartitionof=/firmware_image
+/sbl1           emmc    /dev/block/bootdevice/by-name/sbl1                      flags=display="SBL1";backup=1;flashimg=0;subpartitionof=/firmware_image
+/tz             emmc    /dev/block/bootdevice/by-name/tz                        flags=display="Tz";backup=1;flashimg=0;subpartitionof=/firmware_image
 
 # EFS
 /efs1           emmc    /dev/block/bootdevice/by-name/modemst1                  flags=backup=1;display="EFS"
@@ -44,5 +56,5 @@
 /vbmeta_image  emmc     /dev/block/bootdevice/by-name/vbmeta                    flags=display="VBMeta";backup=1;flashimg=1
 
 # Removable storage
-/usb_otg        auto     /dev/block/sda1              /dev/block/sda          flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable;fsflags="utf8"
-/external_sd    auto     /dev/block/mmcblk1p1         /dev/block/mmcblk1      flags=fsflags=utf8;display="SD Card";storage;wipeingui;removable;fsflags="utf8"
+/usb_otg        auto     /dev/block/sda1              /dev/block/sda            flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable;fsflags="utf8"
+/external_sd    auto     /dev/block/mmcblk1p1         /dev/block/mmcblk1        flags=fsflags=utf8;display="SD Card";storage;wipeingui;removable;fsflags="utf8"
