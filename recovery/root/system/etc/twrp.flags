@@ -25,29 +25,29 @@
 
 # Modem
 /firmware       vfat    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";fsflags="ro";mounttodecrypt;backup=0
-/firmware_image emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";flashimg=0;backup=1
+/firmware_image emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";flashimg=0;backup=0;advbackup=1
 /modem          emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Modem";backup=1
 /dsp            emmc    /dev/block/bootdevice/by-name/dsp                       flags=subpartitionof=/modem;backup=1
 
 # Firmware
-/cmnlib         emmc    /dev/block/bootdevice/by-name/cmnlib                    flags=display="CMNLIB";backup=1;flashimg=0;subpartitionof=/firmware_image
-/cmnlib64       emmc    /dev/block/bootdevice/by-name/cmnlib64                  flags=display="CMNLIB64";backup=1;flashimg=0;subpartitionof=/firmware_image
-/devcfg         emmc    /dev/block/bootdevice/by-name/devcfg                    flags=display="DEVCFG";backup=1;flashimg=0;subpartitionof=/firmware_image
-/aboot          emmc    /dev/block/bootdevice/by-name/aboot                     flags=display="Bootloader";backup=1;flashimg=0;subpartitionof=/firmware_image
-/lksecapp       emmc    /dev/block/bootdevice/by-name/lksecapp                  flags=display="LKSECAPP";backup=1;flashimg=0;subpartitionof=/firmware_image
-/rpm            emmc    /dev/block/bootdevice/by-name/rpm                       flags=display="RPM";backup=1;flashimg=0;subpartitionof=/firmware_image
-/sbl1           emmc    /dev/block/bootdevice/by-name/sbl1                      flags=display="SBL1";backup=1;flashimg=0;subpartitionof=/firmware_image
-/tz             emmc    /dev/block/bootdevice/by-name/tz                        flags=display="Tz";backup=1;flashimg=0;subpartitionof=/firmware_image
+/cmnlib         emmc    /dev/block/bootdevice/by-name/cmnlib                    flags=display="CMNLIB";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/cmnlib64       emmc    /dev/block/bootdevice/by-name/cmnlib64                  flags=display="CMNLIB64";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/devcfg         emmc    /dev/block/bootdevice/by-name/devcfg                    flags=display="DEVCFG";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/aboot          emmc    /dev/block/bootdevice/by-name/aboot                     flags=display="Bootloader";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/lksecapp       emmc    /dev/block/bootdevice/by-name/lksecapp                  flags=display="LKSECAPP";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/rpm            emmc    /dev/block/bootdevice/by-name/rpm                       flags=display="RPM";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/sbl1           emmc    /dev/block/bootdevice/by-name/sbl1                      flags=display="SBL1";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
+/tz             emmc    /dev/block/bootdevice/by-name/tz                        flags=display="Tz";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
 
 # EFS
-/efs1           emmc    /dev/block/bootdevice/by-name/modemst1                  flags=backup=1;display="EFS"
-/efs2           emmc    /dev/block/bootdevice/by-name/modemst2                  flags=backup=1;subpartitionof=/efs1
-/efsc           emmc    /dev/block/bootdevice/by-name/fsc                       flags=backup=1;subpartitionof=/efs1
-/efsg           emmc    /dev/block/bootdevice/by-name/fsg                       flags=backup=1;subpartitionof=/efs1
+/efs1           emmc    /dev/block/bootdevice/by-name/modemst1                  flags=backup=0;advbackup=1;display="EFS"
+/efs2           emmc    /dev/block/bootdevice/by-name/modemst2                  flags=backup=0;advbackup=1;subpartitionof=/efs1
+/efsc           emmc    /dev/block/bootdevice/by-name/fsc                       flags=backup=0;advbackup=1;subpartitionof=/efs1
+/efsg           emmc    /dev/block/bootdevice/by-name/fsg                       flags=backup=0;advbackup=1;subpartitionof=/efs1
 
 # Persist
 /persist        ext4    /dev/block/bootdevice/by-name/persist                   flags=display="Persist";fsflags="ro"
-/persist_image  emmc    /dev/block/bootdevice/by-name/persist                   flags=display="Persist";backup=1;flashimg=1
+/persist_image  emmc    /dev/block/bootdevice/by-name/persist                   flags=display="Persist";backup=0;advbackup=1;flashimg=1
 
 # Splash
 /splash         emmc    /dev/block/bootdevice/by-name/splash                    flags=display="Splash";backup=1;flashimg=1
