@@ -65,8 +65,8 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # OEM otacert
-PRODUCT_EXTRA_RECOVERY_KEYS += \  
+PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/recovery/security/miui
-	
+
 # Inherit extra if exists
 $(call inherit-product-if-exists, vendor/extra/product.mk)
