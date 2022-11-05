@@ -64,5 +64,9 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/vintf/keymaster-4-0.xml:$(TARGET_COPY_OUT_RE
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# OEM otacert
+PRODUCT_EXTRA_RECOVERY_KEYS += \  
+    vendor/recovery/security/miui
+	
 # Inherit extra if exists
 $(call inherit-product-if-exists, vendor/extra/product.mk)
