@@ -11,11 +11,11 @@
 /vendor_image   emmc    /dev/block/bootdevice/by-name/vendor                    flags=display="Vendor";backup=1;flashimg=1
 
 # Cache
-/cache          ext4    /dev/block/bootdevice/by-name/cache                     flags=display="Cache";fsflags="discard";wipeingui;wipeduringfactoryreset
+/cache          ext4    /dev/block/bootdevice/by-name/cache                     flags=display="Cache";fsflags="discard";backup=0;advbackup=1;wipeingui;wipeduringfactoryreset
 
 # Cust
 /cust           auto    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";fsflags="discard"
-/cust_image     emmc    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";backup=1;flashimg=1
+/cust_image     emmc    /dev/block/bootdevice/by-name/cust                      flags=display="Cust";backup=0;advbackup=1;flashimg=1
 
 # DTBO
 /dtbo           emmc    /dev/block/bootdevice/by-name/dtbo                      flags=display="DTBO";backup=1;flashimg=1
@@ -26,8 +26,8 @@
 # Modem
 /firmware       vfat    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";fsflags="ro";mounttodecrypt;backup=0
 /firmware_image emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Firmware";flashimg=0;backup=0;advbackup=1
-/modem          emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Modem";backup=1
-/dsp            emmc    /dev/block/bootdevice/by-name/dsp                       flags=subpartitionof=/modem;backup=1
+/modem          emmc    /dev/block/bootdevice/by-name/modem                     flags=display="Modem";backup=0;advbackup=1
+/dsp            emmc    /dev/block/bootdevice/by-name/dsp                       flags=subpartitionof=/modem;backup=0;advbackup=1
 
 # Firmware
 /cmnlib         emmc    /dev/block/bootdevice/by-name/cmnlib                    flags=display="CMNLIB";backup=0;advbackup=1;flashimg=0;subpartitionof=/firmware_image
@@ -50,10 +50,10 @@
 /persist_image  emmc    /dev/block/bootdevice/by-name/persist                   flags=display="Persist";backup=0;advbackup=1;flashimg=1
 
 # Splash
-/splash         emmc    /dev/block/bootdevice/by-name/splash                    flags=display="Splash";backup=1;flashimg=1
+/splash         emmc    /dev/block/bootdevice/by-name/splash                    flags=display="Splash";backup=0;advbackup=1;flashimg=1
 
 # VBMeta
-/vbmeta_image  emmc     /dev/block/bootdevice/by-name/vbmeta                    flags=display="VBMeta";backup=1;flashimg=1
+/vbmeta_image  emmc     /dev/block/bootdevice/by-name/vbmeta                    flags=display="VBMeta";backup=0;advbackup=1;flashimg=1
 
 # Removable storage
 /usb_otg        auto     /dev/block/sda1              /dev/block/sda            flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable;fsflags="utf8"
