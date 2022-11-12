@@ -103,10 +103,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_NO_MIUI_PATCH_WARNING=1
 
 	# screen settings
-	export OF_SCREEN_H=2160 #2340
-	export OF_STATUS_H=76 #80
-	export OF_STATUS_INDENT_LEFT=62 #48
-	export OF_STATUS_INDENT_RIGHT=62 #48
+	export OF_SCREEN_H=2280
+	export OF_STATUS_H=80
+	export OF_STATUS_INDENT_LEFT=48
+	export OF_STATUS_INDENT_RIGHT=48
 	export OF_NO_SPLASH_CHANGE=1
 
     # -- add settings for R11 --
