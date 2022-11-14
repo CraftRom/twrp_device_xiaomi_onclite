@@ -1,8 +1,8 @@
 [
     {
-        "remote"        :   "TeamWin",
-        "repository"    :   "android_device_qcom_twrp-common",
-        "target_path"   :   "device/qcom/twrp-common",
-        "revision"      :   "android-12.1"
+        "remote"        :   "github",
+        "repository"    :   "CraftRom/recovery_kernel_xiaomi_onclite",
+        "target_path"   :   "kernel/xiaomi/onclite",
+        "revision"      :   "fox_12.1"
     }
 ]

@@ -69,20 +69,34 @@ TARGET_SCREEN_DENSITY := 269
 TARGET_ENABLE_MEDIADRM_64 := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci androidboot.usbconfigfs=true loop.max_part=7
-BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0x78B0000 firmware_class.path=/system/etc/firmware
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_BOOTIMG_HEADER_VERSION := 1
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-# Kernel - DTBO
-BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-
 BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := \
+	console=ttyMSM0,115200,n8 \
+	androidboot.console=ttyMSM0 \
+	androidboot.hardware=qcom \
+	msm_rtb.filter=0x237 \
+	ehci-hcd.park=3 \
+	lpm_levels.sleep_disabled=1 \
+	androidboot.bootdevice=7824900.sdhci \
+	earlycon=msm_serial_dm,0x78af000 \
+	firmware_class.path=/vendor/firmware_mnt/image \
+	androidboot.usbconfigfs=true \
+	androidboot.selinux=permissive
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/xiaomi/onclite
+TARGET_KERNEL_CONFIG := onclite-perf_defconfig
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_KERNEL_VERSION := 4.9
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_BOOTIMG_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+
 
 # NTFS FS Support
 TW_INCLUDE_NTFS_3G := true
