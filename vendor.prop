@@ -1,2 +1,5 @@
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
+
+# Dynamic partition
+ro.boot.dynamic_partitions=true
